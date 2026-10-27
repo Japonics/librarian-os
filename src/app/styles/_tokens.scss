@@ -1,0 +1,87 @@
+// Colors are tokens on :root. Each theme redefines the same names.
+// The accent is a hue, so one slider-free setting works in every theme.
+
+@mixin light {
+  color-scheme: light;
+  --bg: #faf8f4;
+  --surface: #ffffff;
+  --surface-2: #f2efe8;
+  --text: #22262b;
+  --text-muted: #5d646d;
+  --border: #ded9cf;
+  --accent: hsl(var(--accent-h) 52% 34%);
+  --accent-soft: hsl(var(--accent-h) 45% 92%);
+  --on-accent: #ffffff;
+  --code-bg: #f1eee6;
+  --mark: #fff0a8;
+  --shadow: 0 6px 24px rgb(40 30 10 / 12%);
+}
+
+@mixin dark {
+  color-scheme: dark;
+  --bg: #14161a;
+  --surface: #1b1e23;
+  --surface-2: #23272d;
+  --text: #dcdfe4;
+  --text-muted: #9ba3ad;
+  --border: #323840;
+  --accent: hsl(var(--accent-h) 55% 66%);
+  --accent-soft: hsl(var(--accent-h) 28% 20%);
+  --on-accent: #101214;
+  --code-bg: #20242a;
+  --mark: #5b4d12;
+  --shadow: 0 6px 24px rgb(0 0 0 / 45%);
+}
+
+@mixin sepia {
+  color-scheme: light;
+  --bg: #f3ead7;
+  --surface: #f9f2e2;
+  --surface-2: #ebe0c8;
+  --text: #3f3223;
+  --text-muted: #6e5e49;
+  --border: #d6c7a8;
+  --accent: hsl(var(--accent-h) 50% 30%);
+  --accent-soft: hsl(var(--accent-h) 35% 86%);
+  --on-accent: #fff9ec;
+  --code-bg: #e9ddc2;
+  --mark: #f3d56a;
+  --shadow: 0 6px 24px rgb(63 50 35 / 18%);
+}
+
+@mixin contrast {
+  color-scheme: dark;
+  --bg: #000000;
+  --surface: #000000;
+  --surface-2: #151515;
+  --text: #ffffff;
+  --text-muted: #e0e0e0;
+  --border: #ffffff;
+  --accent: #ffd60a;
+  --accent-soft: #2a2400;
+  --on-accent: #000000;
+  --code-bg: #121212;
+  --mark: #7a6400;
+  --shadow: none;
+}
+
+:root {
+  --accent-h: 160;
+  --fs: 18px;
+  --lh: 1.65;
+  --measure: 72ch;
+  --font-body: 'Source Serif 4', Georgia, serif;
+  --font-heading: 'Source Serif 4', Georgia, serif;
+  --font-ui: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, 'SFMono-Regular', Menlo, monospace;
+  --align: left;
+  --radius: 8px;
+  --header-h: 52px;
+  --footer-h: 30px;
+  @include light;
+}
+
+:root[data-theme='dark'] { @include dark; }
+:root[data-theme='sepia'] { @include sepia; }
+:root[data-theme='contrast'] { @include contrast; }
+:root[data-theme='light'] { @include light; }

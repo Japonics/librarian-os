@@ -1,0 +1,16 @@
+.practice { max-width: 760px; margin: 0 auto; padding: 2rem clamp(1rem, 4vw, 2rem) 4rem;
+  h1 { font-family: var(--font-heading); margin: 0 0 0.3rem; }
+  .scope { display: flex; flex-wrap: wrap; gap: 0.4rem; margin: 1rem 0; }
+  .card-q { border: 1px solid var(--border); border-radius: 14px; background: var(--surface); padding: 1.4rem 1.5rem; box-shadow: var(--shadow); min-height: 220px; display: flex; flex-direction: column; gap: 0.9rem;
+    .meta { display: flex; justify-content: space-between; gap: 0.5rem; font-size: 0.8rem; color: var(--text-muted); flex-wrap: wrap; }
+    .q { font-family: var(--font-heading); font-size: 1.3rem; line-height: 1.4; }
+    .a { border-top: 1px dashed var(--border); padding-top: 0.8rem; font-family: var(--font-body); font-size: 1.05rem; line-height: 1.6; }
+    .hint { color: var(--text-muted); font-size: 0.9rem; }
+    .actions { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-top: auto; }
+  }
+  .boxes { display: flex; gap: 0.4rem; margin-top: 1rem; font-size: 0.8rem; color: var(--text-muted); .box { flex: 1; text-align: center; padding: 0.3rem; border: 1px solid var(--border); border-radius: 8px; strong { display: block; color: var(--text); } } }
+}
+
+.ai-panel { margin: 2rem 0 0; font-family: var(--font-ui); border: 1px solid var(--border); border-radius: var(--radius); background: var(--surface); padding: 0.9rem 1rem;
+  h3 { margin: 0 0 0.4rem; font-size: 0.95rem; } .proposal { border-top: 1px solid var(--border); padding: 0.7rem 0; } .proposal .q { font-weight: 600; } .proposal .a { color: var(--text-muted); margin: 0.2rem 0 0.4rem; } .error { color: #b3261e; } :root[data-theme='dark'] & .error { color: #ff8a80; }
+}

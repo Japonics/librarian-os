@@ -1,0 +1,10 @@
+node_modules/
+dist/
+.cache/
+data/
+librarian-os.config.local.json
+.env
+.DS_Store
+*.log
+.idea/
+.vscode/

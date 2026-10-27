@@ -1,0 +1,81 @@
+.reader { padding: 1.6rem clamp(1rem, 4vw, 3rem) 5rem; font-family: var(--font-body); font-size: var(--fs); }
+// The column width is in ch of the reading font, so one wrapper holds it and every child fills it.
+.reader-col { max-width: var(--measure); margin: 0 auto; }
+
+.crumbs { margin: 0 0 0.6rem; font-size: 0.82rem; color: var(--text-muted); display: flex; flex-wrap: wrap; gap: 0.25rem 0.4rem;
+  a { color: var(--text-muted); text-decoration: none; &:hover { color: var(--accent); text-decoration: underline; } }
+  .sep::before { content: '/'; opacity: 0.6; }
+}
+
+.note-meta { margin: 0 0 1.2rem; display: flex; flex-wrap: wrap; gap: 0.4rem; align-items: center; font-size: 0.82rem; color: var(--text-muted);
+  .chip.status-reviewed { background: var(--accent-soft); color: var(--text); border-color: var(--accent); }
+  .chip.planned { border-style: dashed; }
+}
+
+// The reading column. Size, family, line height, width and alignment come from the settings.
+.prose {
+  font-family: var(--font-body); font-size: var(--fs); line-height: var(--lh); text-align: var(--align); hyphens: auto; overflow-wrap: anywhere;
+  color: var(--text);
+
+  h1, h2, h3, h4, h5 { font-family: var(--font-heading); line-height: 1.25; text-align: left; hyphens: manual; scroll-margin-top: calc(var(--header-h) + 1rem); position: relative; }
+  h1 { font-size: 2.1em; margin: 0.2em 0 0.5em; letter-spacing: -0.01em; }
+  h2 { font-size: 1.5em; margin: 2em 0 0.5em; padding-bottom: 0.25em; border-bottom: 1px solid var(--border); }
+  h3 { font-size: 1.2em; margin: 1.6em 0 0.4em; }
+  h4 { font-size: 1.05em; margin: 1.4em 0 0.3em; }
+  .anchor { position: absolute; left: -1.1em; opacity: 0; text-decoration: none; font-family: var(--font-ui); font-size: 0.8em; top: 0.15em; }
+  :is(h2, h3, h4):hover .anchor, .anchor:focus { opacity: 0.6; }
+
+  p, ul, ol, blockquote, pre, table, figure, .table-wrap, .diagram { margin: 0 0 1em; }
+  ul, ol { padding-left: 1.4em; li { margin: 0.25em 0; > p { margin: 0.3em 0; } } }
+  a { text-decoration-thickness: 1px; }
+  strong { font-weight: 700; }
+  hr { border: 0; border-top: 1px solid var(--border); margin: 2em 0; }
+
+  blockquote { padding: 0.1em 1em; border-left: 3px solid var(--accent); background: var(--surface-2); border-radius: 0 var(--radius) var(--radius) 0; color: var(--text); }
+
+  code { font-family: var(--font-mono); font-size: 0.86em; background: var(--code-bg); padding: 0.1em 0.35em; border-radius: 4px; hyphens: none; }
+  pre { position: relative; background: var(--code-bg); border: 1px solid var(--border); border-radius: var(--radius); padding: 0.9em 1em; overflow: auto; line-height: 1.5; text-align: left; hyphens: none;
+    code { background: none; padding: 0; font-size: 0.82em; white-space: pre; }
+    .copy { position: absolute; top: 0.4rem; right: 0.4rem; font: 0.72rem var(--font-ui); padding: 0.15rem 0.5rem; opacity: 0; transition: opacity 0.15s; }
+    &:hover .copy, .copy:focus { opacity: 1; }
+  }
+
+  .table-wrap { overflow-x: auto; border: 1px solid var(--border); border-radius: var(--radius); }
+  table { border-collapse: collapse; width: 100%; font-family: var(--font-ui); font-size: 0.82em; margin: 0; hyphens: manual;
+    th, td { padding: 0.5em 0.75em; text-align: left; vertical-align: top; border-bottom: 1px solid var(--border); }
+    th { background: var(--surface-2); font-weight: 600; white-space: nowrap; }
+    tr:last-child td { border-bottom: 0; }
+  }
+
+  p.todo { border: 1px dashed var(--accent); background: var(--accent-soft); border-radius: var(--radius); padding: 0.55em 0.8em; font-family: var(--font-ui); font-size: 0.85em; line-height: 1.5; }
+
+  .diagram { text-align: center; padding: 1em; border: 1px solid var(--border); border-radius: var(--radius); background: var(--surface); overflow-x: auto;
+    svg { height: auto; max-width: 100%; }
+    &.failed { text-align: left; color: var(--text-muted); font: 0.8rem var(--font-mono); white-space: pre-wrap; }
+  }
+  mark.hit { background: var(--mark); color: inherit; border-radius: 2px; }
+  .footnotes { font-size: 0.88em; color: var(--text-muted); }
+  img { border-radius: var(--radius); }
+}
+
+// highlight.js tokens, using theme tokens so every theme works.
+.hljs-comment, .hljs-quote { color: var(--text-muted); font-style: italic; }
+.hljs-keyword, .hljs-selector-tag, .hljs-literal, .hljs-built_in { color: hsl(var(--accent-h) 55% 40%); font-weight: 600; }
+:root[data-theme='dark'] .hljs-keyword, :root[data-theme='dark'] .hljs-built_in, :root[data-theme='contrast'] .hljs-keyword { color: hsl(var(--accent-h) 60% 70%); }
+.hljs-string, .hljs-attr, .hljs-template-variable { color: #a1470b; }
+:root[data-theme='dark'] .hljs-string, :root[data-theme='dark'] .hljs-attr { color: #e5a46b; }
+.hljs-number, .hljs-title, .hljs-section, .hljs-name { color: #1c5aa6; }
+:root[data-theme='dark'] .hljs-number, :root[data-theme='dark'] .hljs-title { color: #7db4ee; }
+
+.note-extra { margin: 2.5rem 0 0; font-family: var(--font-ui); font-size: 0.9rem;
+  details { border: 1px solid var(--border); border-radius: var(--radius); background: var(--surface); margin: 0 0 0.7rem; }
+  summary { cursor: pointer; padding: 0.6rem 0.9rem; font-weight: 600; }
+  .body { padding: 0 0.9rem 0.8rem; }
+  dl { margin: 0; } dt { font-weight: 600; margin-top: 0.5rem; } dd { margin: 0.1rem 0 0; color: var(--text-muted); }
+  ol { margin: 0; padding-left: 1.2rem; li { margin: 0.4rem 0; } }
+  .verified { color: var(--accent); }
+}
+
+.pager { margin: 2rem 0 0; display: flex; justify-content: space-between; gap: 1rem; font-family: var(--font-ui);
+  a { flex: 1; padding: 0.7rem 0.9rem; border: 1px solid var(--border); border-radius: var(--radius); text-decoration: none; color: var(--text); background: var(--surface); &:hover { border-color: var(--accent); } small { display: block; color: var(--text-muted); } &.next { text-align: right; } }
+}

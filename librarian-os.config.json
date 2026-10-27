@@ -1,0 +1,42 @@
+{
+  "port": 5173,
+  "host": "127.0.0.1",
+  "dataDir": "data",
+  "git": { "pullOnSwitch": true, "pullCooldownSeconds": 60 },
+  "ai": {
+    "enabled": true,
+    "default": { "provider": "anthropic", "model": "claude-opus-5-5" },
+    "maxQuestions": 10,
+    "providers": {
+      "anthropic": {
+        "label": "Anthropic",
+        "apiKeyEnv": "ANTHROPIC_API_KEY",
+        "models": [
+          { "id": "claude-opus-5-5", "label": "Claude Opus 5.5" },
+          { "id": "claude-sonnet-5-5", "label": "Claude Sonnet 5.5" },
+          { "id": "claude-haiku-5-5", "label": "Claude Haiku 5.5" }
+        ]
+      },
+      "openai": {
+        "label": "OpenAI",
+        "apiKeyEnv": "OPENAI_API_KEY",
+        "models": [
+          { "id": "gpt-6-astra" },
+          { "id": "gpt-6.1-sol" },
+          { "id": "gpt-6.1-terra" },
+          { "id": "gpt-6-luna" }
+        ]
+      },
+      "gemini": {
+        "label": "Google Gemini",
+        "apiKeyEnv": "GEMINI_API_KEY",
+        "models": [
+          { "id": "gemini-4-argon" },
+          { "id": "gemini-3.8-flash" },
+          { "id": "gemini-3.6-flash" },
+          { "id": "gemini-3.5-flash-lite" }
+        ]
+      }
+    }
+  }
+}

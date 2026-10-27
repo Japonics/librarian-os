@@ -1,0 +1,9 @@
+@media print {
+  .topbar, .sidebar, .aside, .foot, .pager, .note-extra, .copy, .toast, .ai-panel { display: none !important; }
+  .shell { display: block; height: auto; }
+  .main { overflow: visible; }
+  body { background: #fff; color: #000; }
+  .prose { max-width: none; font-size: 11pt; color: #000; }
+  .prose a { color: #000; }
+  .prose pre, .prose .table-wrap, .prose .diagram { break-inside: avoid; }
+}
