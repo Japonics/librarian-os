@@ -112,4 +112,3 @@ MIT, see [LICENSE](LICENSE). Copyright (c) 2026 Japonics.
 - Obsidian-style `[[wikilinks]]` are not supported. Notes use relative Markdown links, and typed relations live in the sidecars.
 - The graph is drawn with SVG and is comfortable up to a few hundred notes.
 - Search runs in the browser over the whole text of the repository.
-- The Gemini and OpenAI providers were written against the SDK typings and have not been run with real keys in this project's tests.
